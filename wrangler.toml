@@ -6,7 +6,7 @@ pages_build_output_dir = ".vercel/output/static"
 [[d1_databases]]
 binding = "DB"
 database_name = "joja-capital-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "f7fb1575-0630-4837-ad71-469c943bf39d"
 
 [[r2_buckets]]
 binding = "IMAGES"
