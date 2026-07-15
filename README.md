@@ -25,6 +25,8 @@ npm run pages:build # `@cloudflare/next-on-pages@1.13.6` transform for Cloudflar
 
 Push to `main` — Cloudflare Pages is configured to auto-build and deploy on push (see project owner for the exact dashboard setup steps).
 
+The Pages project must use **Build System Version 2** (Settings → Builds & deployments) — Version 3 has had routing issues with `@cloudflare/next-on-pages` output where the root path `/` gets intercepted by the static-asset layer instead of reaching the Worker.
+
 ## Content model
 
 All editable content lives in one D1 table, `content(key, value, updated_at)`, one JSON blob per section (`hero`, `about`, `services`, `deals`, `team`, `contact`, `footer`). See [lib/types.ts](lib/types.ts) for shapes and [lib/defaults.ts](lib/defaults.ts) for placeholder content shown until an admin edits a section.
