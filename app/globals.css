@@ -3,25 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #05070d;
+  --foreground: #e3e8ee;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #c9a86a;
+  color: #05070d;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .section-eyebrow {
+    @apply text-gold-400 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em];
+  }
+
+  .section-headline {
+    @apply font-serif text-3xl sm:text-4xl md:text-5xl text-slate-50 leading-tight text-balance;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-gold-500 text-navy-950 font-semibold tracking-wide uppercase text-sm hover:bg-gold-400 transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-slate-400/60 text-slate-100 font-semibold tracking-wide uppercase text-sm hover:border-gold-400 hover:text-gold-400 transition-colors duration-200;
   }
 }

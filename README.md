@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JOJA Capital — Website
 
-## Getting Started
+Next.js 14 (App Router) site for JOJA Capital, deployed on Cloudflare Pages with Cloudflare D1 (content) and R2 (image uploads). All public content (hero, about, services, deals, team, contact, footer) is editable from the hidden admin panel at `/studio`.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
+npm run db:migrate:local   # creates the local D1 schema (one-time, or after new migrations)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Local dev uses `@cloudflare/next-on-pages`'s dev-platform shim, so D1 and R2 bindings are emulated locally via Miniflare — no live Cloudflare account needed to develop. The admin password for local dev comes from `.dev.vars` (gitignored; see `.dev.vars.example`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit `/studio` for the admin login.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Building
 
-## Learn More
+```bash
+npm run build          # plain `next build` — the correctness gate
+npm run pages:build     # `@cloudflare/next-on-pages` transform for Cloudflare Pages (Linux/WSL only — the underlying Vercel CLI needs bash and does not run natively on Windows)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Push to `main` — Cloudflare Pages is configured to auto-build and deploy on push (see project owner for the exact dashboard setup steps).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content model
 
-## Deploy on Vercel
+All editable content lives in one D1 table, `content(key, value, updated_at)`, one JSON blob per section (`hero`, `about`, `services`, `deals`, `team`, `contact`, `footer`). See [lib/types.ts](lib/types.ts) for shapes and [lib/defaults.ts](lib/defaults.ts) for placeholder content shown until an admin edits a section.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Images are uploaded to the `IMAGES` R2 bucket via `/studio/api/upload` and served back publicly through `/api/images/[key]`.
