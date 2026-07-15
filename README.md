@@ -18,7 +18,7 @@ Visit `/studio` for the admin login.
 
 ```bash
 npm run build          # plain `next build` — the correctness gate
-npm run pages:build     # `@cloudflare/next-on-pages` transform for Cloudflare Pages (Linux/WSL only — the underlying Vercel CLI needs bash and does not run natively on Windows)
+npm run pages:build # `@cloudflare/next-on-pages` transform for Cloudflare Pages (Linux/WSL only — the underlying Vercel CLI needs bash and does not run natively on Windows)
 ```
 
 ## Deploying
