@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LoginForm from "@/components/studio/LoginForm";
 
 export const runtime = "edge";
@@ -11,6 +12,12 @@ export default function StudioLoginPage() {
         Sign in to manage site content
       </h1>
       <LoginForm />
+      <Link
+        href="/"
+        className="mt-8 text-slate-500 hover:text-slate-300 text-xs uppercase tracking-widest transition-colors"
+      >
+        ← Back to site
+      </Link>
     </main>
   );
 }
