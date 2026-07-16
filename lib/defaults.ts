@@ -22,14 +22,7 @@ export const defaultHero: HeroContent = {
   stats: [
     { id: "stat-1", label: "Total Closings", prefix: "$", value: 750, suffix: "M+" },
     { id: "stat-2", label: "Deals Closed", prefix: "", value: 120, suffix: "+" },
-    {
-      id: "stat-3",
-      label: "Year Founded",
-      prefix: "",
-      value: 2015,
-      suffix: "",
-      noSeparator: true,
-    },
+    { id: "stat-3", label: "Year Founded", prefix: "", value: 2015, suffix: "" },
   ],
 };
 

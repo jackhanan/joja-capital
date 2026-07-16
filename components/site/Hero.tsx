@@ -37,14 +37,18 @@ export default function Hero({ hero }: { hero: HeroContent }) {
         </div>
 
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-10 border-t border-slate-200 pt-10">
-          {hero.stats.map((stat) => (
+          {hero.stats.map((stat, i) => (
             <StatCounter
               key={stat.id}
               prefix={stat.prefix}
               value={stat.value}
               suffix={stat.suffix}
               label={stat.label}
-              noSeparator={stat.noSeparator}
+              // The 3rd stat is always "Year Founded" -- the admin can edit
+              // its value but never reorders/adds/removes hero stats (see
+              // HeroEditor.tsx), so a year should never get a thousands
+              // separator regardless of what value is stored.
+              noSeparator={i === 2}
             />
           ))}
         </div>
