@@ -25,12 +25,20 @@ export default function DashboardNav() {
 
   return (
     <aside className="w-full sm:w-56 shrink-0 border-b sm:border-b-0 sm:border-r border-slate-800/60 sm:min-h-screen">
-      <Link href="/" className="block px-6 py-6 hover:bg-navy-900 transition-colors">
+      <Link href="/" className="block px-6 pt-6 hover:bg-navy-900 transition-colors">
         <p className="text-accent-400 text-[10px] font-semibold uppercase tracking-[0.25em]">
           JOJA Capital
         </p>
         <p className="font-serif text-lg text-slate-50 mt-1">Studio</p>
       </Link>
+      <div className="px-6 pt-4 pb-6">
+        <Link
+          href="/"
+          className="btn-secondary !px-4 !py-2 !text-xs w-full sm:w-auto"
+        >
+          View Site
+        </Link>
+      </div>
       <nav className="flex sm:flex-col overflow-x-auto sm:overflow-visible px-3 gap-1">
         {SECTIONS.map((s) => (
           <Link
