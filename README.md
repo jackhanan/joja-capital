@@ -25,7 +25,7 @@ npm run pages:build # `@cloudflare/next-on-pages@1.13.6` transform for Cloudflar
 
 Push to `main` — Cloudflare Pages is configured to auto-build and deploy on push (see project owner for the exact dashboard setup steps).
 
-The Pages project must use **Build System Version 2** (Settings → Builds & deployments) — Version 3 has had routing issues with `@cloudflare/next-on-pages` output where the root path `/` gets intercepted by the static-asset layer instead of reaching the Worker.
+**`vercel` is pinned as a devDependency (`39.1.2`)** — `@cloudflare/next-on-pages` internally shells out to `npx vercel build` to convert Next's output into the Vercel Build Output API format it then adapts for Cloudflare. Since `next-on-pages`'s peer dependency on `vercel` has no upper bound (`>=30.0.0`), an unpinned `npx vercel build` drifts to whatever the latest `vercel` release is. Newer `vercel` releases (confirmed with `56.2.0`) produce a build manifest where the root path `/` is incorrectly mapped as a static override to Next's internal `not-found.txt` placeholder instead of the actual homepage function — every other route is unaffected, only `/`. Pinning `vercel` to the version current when this `next-on-pages` release shipped avoids the regression. If `next-on-pages` is ever upgraded, re-verify this pin (or drop it if the issue's been fixed upstream).
 
 ## Content model
 
