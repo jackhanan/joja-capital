@@ -48,7 +48,7 @@ export default function LoginForm() {
         autoFocus
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="w-full bg-navy-900 border border-slate-700 px-4 py-3 text-slate-100 focus:outline-none focus:border-gold-400 transition-colors"
+        className="w-full bg-navy-900 border border-slate-700 px-4 py-3 text-slate-100 focus:outline-none focus:border-accent-400 transition-colors"
         placeholder="••••••••"
       />
       {error && <p className="mt-3 text-sm text-red-400">{error}</p>}

@@ -18,9 +18,9 @@ export default function PlaceholderImage({
 
   return (
     <div
-      className={`flex items-center justify-center bg-gradient-to-br from-slate-800 to-navy-700 border border-slate-700/50 ${className}`}
+      className={`flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 ${className}`}
     >
-      <span className="text-slate-500 text-xs uppercase tracking-widest text-center px-4">
+      <span className="text-slate-400 text-xs uppercase tracking-widest text-center px-4">
         {label}
       </span>
     </div>

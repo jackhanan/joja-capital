@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #05070d;
-  --foreground: #e3e8ee;
+  --background: #ffffff;
+  --foreground: #1a2530;
 }
 
 html {
@@ -17,8 +17,8 @@ body {
 }
 
 ::selection {
-  background: #c9a86a;
-  color: #05070d;
+  background: #93a7b9;
+  color: #0a243c;
 }
 
 @layer utilities {
@@ -26,19 +26,25 @@ body {
     text-wrap: balance;
   }
 
+  /* Public site (white background) */
   .section-eyebrow {
-    @apply text-gold-400 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em];
+    @apply text-accent-600 text-xs sm:text-sm font-semibold uppercase tracking-[0.25em];
   }
 
   .section-headline {
-    @apply font-serif text-3xl sm:text-4xl md:text-5xl text-slate-50 leading-tight text-balance;
+    @apply font-serif text-3xl sm:text-4xl md:text-5xl text-slate-900 leading-tight text-balance;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 bg-gold-500 text-navy-950 font-semibold tracking-wide uppercase text-sm hover:bg-gold-400 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-accent-600 text-white font-semibold tracking-wide uppercase text-sm hover:bg-accent-700 transition-colors duration-200;
   }
 
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-slate-300 text-slate-900 font-semibold tracking-wide uppercase text-sm hover:border-accent-600 hover:text-accent-600 transition-colors duration-200;
+  }
+
+  /* Admin studio (dark background) */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 border border-slate-400/60 text-slate-100 font-semibold tracking-wide uppercase text-sm hover:border-gold-400 hover:text-gold-400 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-slate-400/60 text-slate-100 font-semibold tracking-wide uppercase text-sm hover:border-accent-400 hover:text-accent-400 transition-colors duration-200;
   }
 }

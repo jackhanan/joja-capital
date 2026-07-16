@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "joja-capital-dev",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
+      "runtimeArgs": ["C:\\Users\\jhana\\Desktop\\Claude\\joja-capital\\node_modules\\next\\dist\\bin\\next", "dev"],
+      "cwd": "C:\\Users\\jhana\\Desktop\\Claude\\joja-capital",
+      "port": 3000
+    }
+  ]
+}

@@ -97,7 +97,7 @@ export default function DealsEditor({ initial }: { initial: DealsContent }) {
         renderItem={(item, i) => (
           <div className="border border-slate-800/60 p-5 pr-24">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-gold-400 text-xs">Deal {i + 1}</span>
+              <span className="text-accent-400 text-xs">Deal {i + 1}</span>
               <button
                 type="button"
                 onClick={() => removeItem(item.id)}

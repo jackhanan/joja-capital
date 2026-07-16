@@ -4,6 +4,7 @@ export interface HeroStat {
   prefix: string;
   value: number;
   suffix: string;
+  noSeparator?: boolean;
 }
 
 export interface HeroContent {

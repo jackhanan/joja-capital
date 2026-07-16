@@ -20,7 +20,7 @@ export default function SaveBar({
         {saving ? "Saving…" : "Save Changes"}
       </button>
       {saved && !saving && (
-        <span className="text-gold-400 text-sm">Saved. Live site updated.</span>
+        <span className="text-accent-400 text-sm">Saved. Live site updated.</span>
       )}
     </div>
   );

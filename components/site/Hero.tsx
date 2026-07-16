@@ -6,7 +6,7 @@ export default function Hero({ hero }: { hero: HeroContent }) {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-slate-800/60"
+      className="relative overflow-hidden border-b border-slate-200"
     >
       <div className="absolute inset-0">
         <PlaceholderImage
@@ -15,15 +15,15 @@ export default function Hero({ hero }: { hero: HeroContent }) {
           label=""
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/95 to-navy-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
       </div>
 
       <div className="relative max-w-content mx-auto px-6 sm:px-10 pt-40 pb-24 sm:pt-48 sm:pb-32">
         <p className="section-eyebrow mb-6">{hero.companyName}</p>
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-slate-50 leading-[1.05] max-w-3xl text-balance">
+        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-slate-900 leading-[1.05] max-w-3xl text-balance">
           {hero.tagline}
         </h1>
-        <p className="mt-8 max-w-2xl text-slate-300 text-base sm:text-lg leading-relaxed">
+        <p className="mt-8 max-w-2xl text-slate-600 text-base sm:text-lg leading-relaxed">
           {hero.subheading}
         </p>
 
@@ -31,12 +31,12 @@ export default function Hero({ hero }: { hero: HeroContent }) {
           <a href={hero.ctaPrimaryHref} className="btn-primary">
             {hero.ctaPrimaryText}
           </a>
-          <a href={hero.ctaSecondaryHref} className="btn-secondary">
+          <a href={hero.ctaSecondaryHref} className="btn-outline">
             {hero.ctaSecondaryText}
           </a>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-10 border-t border-slate-800/60 pt-10">
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-10 border-t border-slate-200 pt-10">
           {hero.stats.map((stat) => (
             <StatCounter
               key={stat.id}
@@ -44,6 +44,7 @@ export default function Hero({ hero }: { hero: HeroContent }) {
               value={stat.value}
               suffix={stat.suffix}
               label={stat.label}
+              noSeparator={stat.noSeparator}
             />
           ))}
         </div>

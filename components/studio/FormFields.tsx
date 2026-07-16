@@ -21,7 +21,7 @@ export function TextField({
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-gold-400 transition-colors"
+        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-accent-400 transition-colors"
       />
     </div>
   );
@@ -47,7 +47,7 @@ export function TextAreaField({
         value={value}
         rows={rows}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-gold-400 transition-colors resize-y"
+        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-accent-400 transition-colors resize-y"
       />
     </div>
   );
@@ -71,7 +71,7 @@ export function NumberField({
         type="number"
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-gold-400 transition-colors"
+        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-accent-400 transition-colors"
       />
     </div>
   );

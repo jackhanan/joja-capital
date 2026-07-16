@@ -78,7 +78,7 @@ export default function ServicesEditor({ initial }: { initial: ServicesContent }
         {data.items.map((item, i) => (
           <div key={item.id} className="border border-slate-800/60 p-5">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-gold-400 text-xs">Card {i + 1}</span>
+              <span className="text-accent-400 text-xs">Card {i + 1}</span>
               <div className="flex gap-3">
                 <button type="button" onClick={() => move(item.id, -1)} className="text-slate-500 hover:text-slate-200 text-xs">
                   ↑ Move Up

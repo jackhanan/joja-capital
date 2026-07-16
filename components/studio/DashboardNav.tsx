@@ -26,7 +26,9 @@ export default function DashboardNav() {
   return (
     <aside className="w-full sm:w-56 shrink-0 border-b sm:border-b-0 sm:border-r border-slate-800/60 sm:min-h-screen">
       <Link href="/" className="block px-6 py-6 hover:bg-navy-900 transition-colors">
-        <p className="section-eyebrow text-[10px]">JOJA Capital</p>
+        <p className="text-accent-400 text-[10px] font-semibold uppercase tracking-[0.25em]">
+          JOJA Capital
+        </p>
         <p className="font-serif text-lg text-slate-50 mt-1">Studio</p>
       </Link>
       <nav className="flex sm:flex-col overflow-x-auto sm:overflow-visible px-3 gap-1">
@@ -36,7 +38,7 @@ export default function DashboardNav() {
             href={s.href}
             className={`px-3 py-2.5 text-sm whitespace-nowrap transition-colors ${
               pathname === s.href
-                ? "bg-navy-800 text-gold-400"
+                ? "bg-navy-800 text-accent-400"
                 : "text-slate-400 hover:text-slate-100 hover:bg-navy-900"
             }`}
           >

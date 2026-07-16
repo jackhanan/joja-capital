@@ -7,6 +7,7 @@ interface StatCounterProps {
   value: number;
   suffix?: string;
   label: string;
+  noSeparator?: boolean;
 }
 
 export default function StatCounter({
@@ -14,6 +15,7 @@ export default function StatCounter({
   value,
   suffix = "",
   label,
+  noSeparator = false,
 }: StatCounterProps) {
   const [display, setDisplay] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -51,12 +53,12 @@ export default function StatCounter({
 
   return (
     <div ref={ref} className="text-center sm:text-left">
-      <div className="font-serif text-4xl sm:text-5xl text-slate-50">
+      <div className="font-serif text-4xl sm:text-5xl text-slate-900">
         {prefix}
-        {display.toLocaleString()}
+        {noSeparator ? display : display.toLocaleString()}
         {suffix}
       </div>
-      <div className="mt-2 text-slate-400 text-xs sm:text-sm uppercase tracking-[0.2em]">
+      <div className="mt-2 text-slate-500 text-xs sm:text-sm uppercase tracking-[0.2em]">
         {label}
       </div>
     </div>

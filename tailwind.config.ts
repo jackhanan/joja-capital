@@ -29,9 +29,17 @@ const config: Config = {
           800: "#263646",
           900: "#1a2530",
         },
-        gold: {
-          400: "#c9a86a",
-          500: "#b3924f",
+        // Sampled from the actual JOJA Capital logo file (public/joja-logo.jpeg)
+        // via pixel analysis — see scripts/sample-logo-color.js. Base/600 (#103c64)
+        // is the logo's true navy blue; other shades are derived tints/shades of it.
+        accent: {
+          300: "#93a7b9",
+          400: "#708aa2",
+          500: "#406383",
+          600: "#103c64",
+          700: "#0d3152",
+          800: "#0c2b48",
+          900: "#0a243c",
         },
       },
       fontFamily: {

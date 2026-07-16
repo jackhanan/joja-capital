@@ -25,6 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${hero.companyName} | ${hero.tagline}`,
     description: hero.subheading,
+    icons: {
+      icon: "/favicon.jpeg",
+    },
   };
 }
 
@@ -36,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${headlineFont.variable} ${bodyFont.variable} antialiased bg-navy-950 text-slate-100 font-sans`}
+        className={`${headlineFont.variable} ${bodyFont.variable} antialiased bg-white text-slate-900 font-sans`}
       >
         {children}
       </body>
