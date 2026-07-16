@@ -35,10 +35,10 @@ export default function Footer({
         </div>
 
         <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-slate-400 text-xs">{footer.copyrightText}</p>
+          <p className="text-graphite-400 text-xs">{footer.copyrightText}</p>
           <Link
             href="/studio"
-            className="text-slate-300 hover:text-slate-500 text-xs transition-colors"
+            className="text-graphite-300 hover:text-graphite-600 text-xs transition-colors"
           >
             Studio Access
           </Link>

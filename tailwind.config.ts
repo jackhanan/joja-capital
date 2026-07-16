@@ -41,6 +41,20 @@ const config: Config = {
           800: "#0c2b48",
           900: "#0a243c",
         },
+        // Tertiary neutral, sampled from the "JOJA" lettering in the logo file
+        // via pixel analysis — see scripts/sample-logo-grey.js. Base/500 (#8d8d8d)
+        // is the logo's true emblem grey; other shades are derived tints/shades of it.
+        graphite: {
+          100: "#f0f0f0",
+          200: "#dcdcdc",
+          300: "#c2c2c2",
+          400: "#a8a8a8",
+          500: "#8d8d8d",
+          600: "#6f6f6f",
+          700: "#565656",
+          800: "#3d3d3d",
+          900: "#262626",
+        },
       },
       fontFamily: {
         serif: ["var(--font-headline)", "Georgia", "serif"],

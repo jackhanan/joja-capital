@@ -28,7 +28,7 @@ export default function Team({ team }: { team: TeamContent }) {
               <p className="mt-1 text-accent-600 text-xs uppercase tracking-[0.15em]">
                 {member.title}
               </p>
-              <div className="mt-3 space-y-1 text-sm text-slate-500">
+              <div className="mt-3 space-y-1 text-sm text-graphite-500">
                 <a
                   href={`mailto:${member.email}`}
                   className="block hover:text-slate-900 transition-colors"

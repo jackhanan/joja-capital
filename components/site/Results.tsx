@@ -46,7 +46,7 @@ export default function Results({ deals }: { deals: DealsContent }) {
             {deals.bannerValue}
             {deals.bannerSuffix}
           </div>
-          <p className="mt-4 text-slate-200 uppercase tracking-[0.2em] text-xs sm:text-sm">
+          <p className="mt-4 text-graphite-200 uppercase tracking-[0.2em] text-xs sm:text-sm">
             {deals.bannerText}
           </p>
         </div>

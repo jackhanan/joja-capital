@@ -45,7 +45,7 @@ export default function Contact({ contact }: { contact: ContactContent }) {
             href={contact.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
+            className="text-graphite-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
           >
             Instagram
           </a>
@@ -53,7 +53,7 @@ export default function Contact({ contact }: { contact: ContactContent }) {
             href={contact.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
+            className="text-graphite-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
           >
             LinkedIn
           </a>
@@ -61,7 +61,7 @@ export default function Contact({ contact }: { contact: ContactContent }) {
             href={contact.facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
+            className="text-graphite-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
           >
             Facebook
           </a>

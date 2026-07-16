@@ -58,7 +58,7 @@ export default function StatCounter({
         {noSeparator ? display : display.toLocaleString()}
         {suffix}
       </div>
-      <div className="mt-2 text-slate-500 text-xs sm:text-sm uppercase tracking-[0.2em]">
+      <div className="mt-2 text-graphite-500 text-xs sm:text-sm uppercase tracking-[0.2em]">
         {label}
       </div>
     </div>
