@@ -8,8 +8,9 @@ import DealModal from "./DealModal";
 const AUTO_ADVANCE_MS = 5000;
 
 export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeDeal, setActiveDeal] = useState<DealItem | null>(null);
 
@@ -26,8 +27,21 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
     scrollToCard(wrapped);
   }
 
+  // Pause only when the carousel is scrolled off-screen or a deal's
+  // detail modal is open -- never on mouse position/hover.
   useEffect(() => {
-    if (paused || activeDeal || deals.length <= 1) return;
+    const node = containerRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || activeDeal || deals.length <= 1) return;
     const id = setInterval(() => {
       setActiveIndex((i) => {
         const next = (i + 1) % deals.length;
@@ -37,7 +51,7 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
     }, AUTO_ADVANCE_MS);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused, activeDeal, deals.length]);
+  }, [isVisible, activeDeal, deals.length]);
 
   // Keep activeIndex (and dots) in sync with manual swipe/scroll.
   useEffect(() => {
@@ -72,12 +86,7 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
   if (deals.length === 0) return null;
 
   return (
-    <div
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
-    >
+    <div ref={containerRef}>
       {deals.length > 1 && (
         <div className="flex justify-end gap-2 mb-6">
           <button

@@ -13,9 +13,9 @@ export default function Hero({ hero }: { hero: HeroContent }) {
           src={hero.backgroundImage}
           alt=""
           label=""
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/60 to-white" />
       </div>
 
       <div className="relative max-w-content mx-auto px-6 sm:px-10 pt-40 pb-24 sm:pt-48 sm:pb-32">
