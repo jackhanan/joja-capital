@@ -105,6 +105,11 @@ export const defaultDeals: DealsContent = {
       amount: "$10.0M",
       dealType: "Bridge Loan",
       location: "Austin, TX",
+      assetType: "Multifamily",
+      units: "184",
+      rate: "SOFR + 325",
+      transactionDetails:
+        "Placeholder: bridge financing for the acquisition and repositioning of a Class B multifamily property, sized to fund a unit renovation program ahead of a permanent-debt takeout.",
     },
     {
       id: "deal-2",
@@ -112,6 +117,11 @@ export const defaultDeals: DealsContent = {
       amount: "$24.5M",
       dealType: "Construction Financing",
       location: "Charlotte, NC",
+      assetType: "Mixed-Use",
+      units: "212",
+      rate: "SOFR + 275",
+      transactionDetails:
+        "Placeholder: ground-up construction debt for a mixed-use development combining ground-floor retail with residential units above, sourced from a regional bank.",
     },
     {
       id: "deal-3",
@@ -119,6 +129,11 @@ export const defaultDeals: DealsContent = {
       amount: "$8.2M",
       dealType: "Permanent Debt Placement",
       location: "Phoenix, AZ",
+      assetType: "Industrial",
+      units: "1",
+      rate: "6.15% Fixed",
+      transactionDetails:
+        "Placeholder: long-term fixed-rate takeout financing for a stabilized single-tenant industrial asset, placed with a life insurance company.",
     },
     {
       id: "deal-4",
@@ -126,6 +141,11 @@ export const defaultDeals: DealsContent = {
       amount: "$15.7M",
       dealType: "Mezzanine Financing",
       location: "Tampa, FL",
+      assetType: "Office",
+      units: "1",
+      rate: "11.5% Fixed",
+      transactionDetails:
+        "Placeholder: mezzanine capital filling the gap between senior debt and sponsor equity on a value-add office repositioning.",
     },
     {
       id: "deal-5",
@@ -133,6 +153,11 @@ export const defaultDeals: DealsContent = {
       amount: "$32.0M",
       dealType: "Joint Venture Equity",
       location: "Denver, CO",
+      assetType: "Multifamily",
+      units: "306",
+      rate: "N/A",
+      transactionDetails:
+        "Placeholder: JV equity introduction pairing an institutional capital partner with a local sponsor for a ground-up multifamily development.",
     },
     {
       id: "deal-6",
@@ -140,6 +165,11 @@ export const defaultDeals: DealsContent = {
       amount: "$6.4M",
       dealType: "Bridge Loan",
       location: "Nashville, TN",
+      assetType: "Retail",
+      units: "1",
+      rate: "SOFR + 350",
+      transactionDetails:
+        "Placeholder: short-term bridge loan to fund the acquisition and lease-up of a vacant retail center ahead of permanent financing.",
     },
   ],
 };

@@ -1,5 +1,5 @@
 import { DealsContent } from "@/lib/types";
-import PlaceholderImage from "./PlaceholderImage";
+import DealsCarousel from "./DealsCarousel";
 
 export default function Results({ deals }: { deals: DealsContent }) {
   return (
@@ -13,31 +13,8 @@ export default function Results({ deals }: { deals: DealsContent }) {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {deals.items.map((deal) => (
-            <div
-              key={deal.id}
-              className="group border border-slate-200 bg-white overflow-hidden"
-            >
-              <PlaceholderImage
-                src={deal.image}
-                alt={`${deal.dealType} — ${deal.location}`}
-                label="Deal Photo Placeholder"
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="p-6">
-                <div className="font-serif text-2xl text-slate-900">
-                  {deal.amount}
-                </div>
-                <div className="mt-2 text-accent-600 text-xs uppercase tracking-[0.2em]">
-                  {deal.dealType}
-                </div>
-                <div className="mt-1 text-slate-500 text-sm">
-                  {deal.location}
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="mt-16">
+          <DealsCarousel deals={deals.items} />
         </div>
 
         <div className="mt-20 border border-accent-800 bg-gradient-to-r from-accent-900 to-accent-700 px-8 py-14 sm:px-16 sm:py-16 text-center">

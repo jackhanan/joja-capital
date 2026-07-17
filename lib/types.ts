@@ -48,6 +48,10 @@ export interface DealItem {
   amount: string;
   dealType: string;
   location: string;
+  assetType?: string;
+  units?: string;
+  rate?: string;
+  transactionDetails?: string;
 }
 
 export interface DealsContent {

@@ -14,6 +14,10 @@ function emptyDeal(): DealItem {
     amount: "$0.0M",
     dealType: "Bridge Loan",
     location: "City, ST",
+    assetType: "",
+    units: "",
+    rate: "",
+    transactionDetails: "",
   };
 }
 
@@ -121,6 +125,31 @@ export default function DealsEditor({ initial }: { initial: DealsContent }) {
                 label="Location"
                 value={item.location}
                 onChange={(v) => updateItem(item.id, { location: v })}
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+              <TextField
+                label="Asset Type"
+                value={item.assetType ?? ""}
+                onChange={(v) => updateItem(item.id, { assetType: v })}
+              />
+              <TextField
+                label="Units"
+                value={item.units ?? ""}
+                onChange={(v) => updateItem(item.id, { units: v })}
+              />
+              <TextField
+                label="Rate"
+                value={item.rate ?? ""}
+                onChange={(v) => updateItem(item.id, { rate: v })}
+              />
+            </div>
+            <div className="mb-4">
+              <TextAreaField
+                label="Transaction Details"
+                value={item.transactionDetails ?? ""}
+                onChange={(v) => updateItem(item.id, { transactionDetails: v })}
+                rows={4}
               />
             </div>
             <ImageUploadField
