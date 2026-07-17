@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { FooterNavLink } from "@/lib/types";
 
 export default function Nav({
@@ -13,11 +14,21 @@ export default function Nav({
   ctaText: string;
 }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const onHomepage = pathname === "/";
+
+  // Section anchors (#about, #services, ...) only work as-is when we're
+  // already on the homepage. From any other page they need to navigate
+  // to "/" first, e.g. "/#services".
+  function resolveHref(href: string): string {
+    if (href.startsWith("#") && !onHomepage) return `/${href}`;
+    return href;
+  }
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="max-w-content mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
-        <a href="#home" className="flex items-center">
+        <a href="/" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/joja-logo.png"
@@ -30,7 +41,7 @@ export default function Nav({
           {navLinks.map((link) => (
             <a
               key={link.id}
-              href={link.href}
+              href={resolveHref(link.href)}
               className="text-slate-600 hover:text-accent-600 text-sm uppercase tracking-widest transition-colors"
             >
               {link.label}
@@ -62,7 +73,7 @@ export default function Nav({
           {navLinks.map((link) => (
             <a
               key={link.id}
-              href={link.href}
+              href={resolveHref(link.href)}
               onClick={() => setOpen(false)}
               className="text-slate-600 hover:text-accent-600 text-sm uppercase tracking-widest transition-colors"
             >

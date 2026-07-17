@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FooterContent } from "@/lib/types";
 
 export default function Footer({
@@ -8,6 +11,13 @@ export default function Footer({
   footer: FooterContent;
   companyName: string;
 }) {
+  const onHomepage = usePathname() === "/";
+
+  function resolveHref(href: string): string {
+    if (href.startsWith("#") && !onHomepage) return `/${href}`;
+    return href;
+  }
+
   return (
     <footer className="bg-white border-t border-slate-200">
       <div className="max-w-content mx-auto px-6 sm:px-10 py-16">
@@ -25,7 +35,7 @@ export default function Footer({
             {footer.navLinks.map((link) => (
               <a
                 key={link.id}
-                href={link.href}
+                href={resolveHref(link.href)}
                 className="text-slate-600 hover:text-slate-900 text-sm transition-colors"
               >
                 {link.label}

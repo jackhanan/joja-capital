@@ -14,7 +14,7 @@ export default function About({ about }: { about: AboutContent }) {
           <p className="mt-4 text-slate-600 leading-relaxed">
             {about.paragraph2}
           </p>
-          <a href={about.ctaHref} className="btn-outline mt-8">
+          <a href={about.ctaHref} className="btn-primary mt-8">
             {about.ctaText}
           </a>
         </div>
