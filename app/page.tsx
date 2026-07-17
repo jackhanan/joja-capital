@@ -2,6 +2,7 @@ import { getAllContent } from "@/lib/content";
 import Nav from "@/components/site/Nav";
 import Hero from "@/components/site/Hero";
 import About from "@/components/site/About";
+import Ticker from "@/components/site/Ticker";
 import Services from "@/components/site/Services";
 import Results from "@/components/site/Results";
 import Team from "@/components/site/Team";
@@ -24,6 +25,7 @@ export default async function HomePage() {
       <main>
         <Hero hero={content.hero} />
         <About about={content.about} />
+        <Ticker items={content.services.tickerItems} />
         <Services services={content.services} />
         <Results deals={content.deals} />
         <Team team={content.team} />

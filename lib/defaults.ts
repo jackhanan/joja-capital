@@ -86,6 +86,14 @@ export const defaultServices: ServicesContent = {
         "Placeholder: note sales, recapitalizations, and strategic advisory for owners navigating loan maturities.",
     },
   ],
+  tickerItems: [
+    "Bridge Loans",
+    "Construction Financing",
+    "Permanent Debt Placement",
+    "Mezzanine & Preferred Equity",
+    "Joint Venture Equity",
+    "Loan Sales & Advisory",
+  ],
 };
 
 export const defaultDeals: DealsContent = {
@@ -221,7 +229,6 @@ export const defaultContact: ContactContent = {
   email: "info@example.com",
   instagramUrl: "https://instagram.com/",
   linkedinUrl: "https://linkedin.com/",
-  facebookUrl: "https://facebook.com/",
   adminEmail: "info@example.com",
   loanTypeOptions: ["Purchase", "Refinance"],
   propertyTypeOptions: [

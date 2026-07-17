@@ -21,9 +21,25 @@ body {
   color: #0a243c;
 }
 
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* The track renders two identical copies of the ticker items back to
+       back, so shifting exactly half its width loops seamlessly into the
+       second copy with no visible seam or jump. */
+    transform: translateX(-50%);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animate-ticker {
+    animation: ticker-scroll linear infinite;
   }
 
   /* Public site (white background) */

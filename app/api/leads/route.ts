@@ -23,7 +23,7 @@ async function sendLeadEmail(lead: DealLeadInput, adminEmail: string, apiKey: st
   const rows: [string, string][] = [
     ["First Name", lead.firstName],
     ["Last Name", lead.lastName],
-    ["Mobile", `${lead.countryCode} ${lead.mobile}`],
+    ["Mobile", lead.mobile],
     ["Email", lead.email],
     ["Loan Type", lead.loanType || "—"],
     ["Property Type", lead.propertyType || "—"],
@@ -70,7 +70,10 @@ export async function POST(req: NextRequest) {
 
   const firstName = (body.firstName ?? "").trim();
   const lastName = (body.lastName ?? "").trim();
-  const countryCode = (body.countryCode ?? "+1").trim();
+  // Country code is no longer collected separately -- the mobile field is a
+  // single freeform text input, so this column is kept for schema
+  // compatibility but always stored empty going forward.
+  const countryCode = (body.countryCode ?? "").trim();
   const mobile = (body.mobile ?? "").trim();
   const email = (body.email ?? "").trim();
   const loanType = (body.loanType ?? "").trim();

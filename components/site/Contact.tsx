@@ -57,14 +57,6 @@ export default function Contact({ contact }: { contact: ContactContent }) {
           >
             LinkedIn
           </a>
-          <a
-            href={contact.facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-graphite-500 hover:text-accent-600 transition-colors text-sm uppercase tracking-widest"
-          >
-            Facebook
-          </a>
         </div>
       </div>
     </section>

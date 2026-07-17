@@ -41,6 +41,9 @@ export interface ServicesContent {
   headline: string;
   subheading: string;
   items: ServiceItem[];
+  // Rendered by Ticker.tsx as a continuous scrolling band directly above
+  // this section, with a dot separator auto-inserted between each item.
+  tickerItems: string[];
 }
 
 export interface DealItem {
@@ -90,7 +93,6 @@ export interface ContactContent {
   email: string;
   instagramUrl: string;
   linkedinUrl: string;
-  facebookUrl: string;
   adminEmail: string;
   loanTypeOptions: string[];
   propertyTypeOptions: string[];

@@ -3,6 +3,7 @@
 import { ServiceItem, ServicesContent } from "@/lib/types";
 import { useContentEditor } from "./useContentEditor";
 import { TextField, TextAreaField } from "./FormFields";
+import OptionListField from "./OptionListField";
 import SaveBar from "./SaveBar";
 
 function emptyService(): ServiceItem {
@@ -120,6 +121,16 @@ export default function ServicesEditor({ initial }: { initial: ServicesContent }
       <button type="button" onClick={addItem} className="btn-secondary mt-6 !px-6 !py-2.5">
         + Add Service Card
       </button>
+
+      <p className="text-slate-400 text-xs uppercase tracking-widest mb-3 mt-10">
+        Scrolling Ticker Band (shown above this section)
+      </p>
+      <OptionListField
+        label="Ticker Items (one per line)"
+        list={data.tickerItems}
+        onCommit={(list) => setData({ ...data, tickerItems: list })}
+        rows={6}
+      />
 
       <SaveBar onSave={save} saving={saving} saved={saved} />
     </div>
