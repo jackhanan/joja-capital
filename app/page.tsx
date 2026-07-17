@@ -19,6 +19,7 @@ export default async function HomePage() {
       <Nav
         companyName={content.hero.companyName}
         navLinks={content.footer.navLinks}
+        ctaText={content.hero.ctaPrimaryText}
       />
       <main>
         <Hero hero={content.hero} />

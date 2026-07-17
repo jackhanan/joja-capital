@@ -14,3 +14,8 @@ export function getAdminPassword(): string {
   const { env } = getRequestContext();
   return env.ADMIN_PASSWORD;
 }
+
+export function getResendApiKey(): string | undefined {
+  const { env } = getRequestContext();
+  return env.RESEND_API_KEY;
+}

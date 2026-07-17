@@ -6,9 +6,11 @@ import { FooterNavLink } from "@/lib/types";
 export default function Nav({
   companyName,
   navLinks,
+  ctaText,
 }: {
   companyName: string;
   navLinks: FooterNavLink[];
+  ctaText: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -34,8 +36,8 @@ export default function Nav({
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary !px-6 !py-2.5">
-            Start Your Deal
+          <a href="/start-your-deal" className="btn-primary !px-6 !py-2.5">
+            {ctaText}
           </a>
         </nav>
 
@@ -67,8 +69,8 @@ export default function Nav({
               {link.label}
             </a>
           ))}
-          <a href="#contact" onClick={() => setOpen(false)} className="btn-primary">
-            Start Your Deal
+          <a href="/start-your-deal" onClick={() => setOpen(false)} className="btn-primary">
+            {ctaText}
           </a>
         </nav>
       )}

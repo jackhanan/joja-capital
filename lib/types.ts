@@ -10,8 +10,9 @@ export interface HeroContent {
   companyName: string;
   tagline: string;
   subheading: string;
+  // Also doubles as the "Start Your Deal" nav bar button text -- both
+  // always link to /start-your-deal (see Hero.tsx and Nav.tsx).
   ctaPrimaryText: string;
-  ctaPrimaryHref: string;
   ctaSecondaryText: string;
   ctaSecondaryHref: string;
   backgroundImage: string;
@@ -90,6 +91,21 @@ export interface ContactContent {
   instagramUrl: string;
   linkedinUrl: string;
   facebookUrl: string;
+  adminEmail: string;
+  loanTypeOptions: string[];
+  propertyTypeOptions: string[];
+}
+
+export interface DealLeadInput {
+  firstName: string;
+  lastName: string;
+  countryCode: string;
+  mobile: string;
+  email: string;
+  loanType: string;
+  propertyType: string;
+  loanSize: string;
+  details: string;
 }
 
 export interface FooterNavLink {

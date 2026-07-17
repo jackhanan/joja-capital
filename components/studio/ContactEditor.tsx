@@ -1,9 +1,47 @@
 "use client";
 
+import { useState } from "react";
 import { ContactContent } from "@/lib/types";
 import { useContentEditor } from "./useContentEditor";
-import { TextField } from "./FormFields";
+import { TextField, TextAreaField } from "./FormFields";
 import SaveBar from "./SaveBar";
+
+function linesToList(value: string): string[] {
+  return value
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+// A plain TextAreaField would re-derive its value from `list.join("\n")`
+// on every keystroke, stripping the trailing blank line the moment you
+// press Enter and making it impossible to start a new line. Editing the
+// raw text locally and only committing the parsed list on blur avoids that.
+function OptionListField({
+  label,
+  list,
+  onCommit,
+  rows,
+}: {
+  label: string;
+  list: string[];
+  onCommit: (list: string[]) => void;
+  rows: number;
+}) {
+  const [text, setText] = useState(list.join("\n"));
+
+  return (
+    <TextAreaField
+      label={label}
+      value={text}
+      rows={rows}
+      onChange={(v) => {
+        setText(v);
+        onCommit(linesToList(v));
+      }}
+    />
+  );
+}
 
 export default function ContactEditor({ initial }: { initial: ContactContent }) {
   const { data, setData, saving, saved, save } = useContentEditor("contact", initial);
@@ -57,6 +95,29 @@ export default function ContactEditor({ initial }: { initial: ContactContent }) 
           label="Facebook URL"
           value={data.facebookUrl}
           onChange={(v) => setData({ ...data, facebookUrl: v })}
+        />
+      </div>
+
+      <p className="text-slate-400 text-xs uppercase tracking-widest mb-3 mt-10">
+        Start Your Deal — Lead Notifications
+      </p>
+      <div className="space-y-6">
+        <TextField
+          label="Notification Email (where new deal submissions are sent)"
+          value={data.adminEmail}
+          onChange={(v) => setData({ ...data, adminEmail: v })}
+        />
+        <OptionListField
+          label="Loan Type Options (one per line)"
+          list={data.loanTypeOptions}
+          onCommit={(list) => setData({ ...data, loanTypeOptions: list })}
+          rows={4}
+        />
+        <OptionListField
+          label="Property Type Options (one per line)"
+          list={data.propertyTypeOptions}
+          onCommit={(list) => setData({ ...data, propertyTypeOptions: list })}
+          rows={10}
         />
       </div>
 

@@ -39,18 +39,14 @@ export default function HeroEditor({ initial }: { initial: HeroContent }) {
           value={data.subheading}
           onChange={(v) => setData({ ...data, subheading: v })}
         />
-        <div className="grid grid-cols-2 gap-4">
-          <TextField
-            label="Primary Button Text"
-            value={data.ctaPrimaryText}
-            onChange={(v) => setData({ ...data, ctaPrimaryText: v })}
-          />
-          <TextField
-            label="Primary Button Link"
-            value={data.ctaPrimaryHref}
-            onChange={(v) => setData({ ...data, ctaPrimaryHref: v })}
-          />
-        </div>
+        <TextField
+          label="Primary Button Text (also the 'Start Your Deal' nav bar button)"
+          value={data.ctaPrimaryText}
+          onChange={(v) => setData({ ...data, ctaPrimaryText: v })}
+        />
+        <p className="text-slate-500 text-xs -mt-4">
+          Both always link to the deal intake form at /start-your-deal.
+        </p>
         <div className="grid grid-cols-2 gap-4">
           <TextField
             label="Secondary Button Text"

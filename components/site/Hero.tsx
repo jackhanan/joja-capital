@@ -28,7 +28,7 @@ export default function Hero({ hero }: { hero: HeroContent }) {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <a href={hero.ctaPrimaryHref} className="btn-primary">
+          <a href="/start-your-deal" className="btn-primary">
             {hero.ctaPrimaryText}
           </a>
           <a href={hero.ctaSecondaryHref} className="btn-outline">
