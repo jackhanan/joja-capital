@@ -81,14 +81,17 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
   if (deals.length === 0) return null;
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="relative">
       {pageCount > 1 && (
-        <div className="flex justify-end gap-2 mb-6">
+        // Positioned in the section's existing header-to-content gap (the
+        // mt-16 above this component) instead of adding a second row of
+        // vertical space, which was leaving an oversized gap above the cards.
+        <div className="absolute -top-[52px] right-0 flex gap-2">
           <button
             type="button"
             aria-label="Previous deal"
             onClick={() => goTo(activePage - 1)}
-            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-colors"
+            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-colors bg-slate-50"
           >
             ←
           </button>
@@ -96,7 +99,7 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
             type="button"
             aria-label="Next deal"
             onClick={() => goTo(activePage + 1)}
-            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-colors"
+            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-colors bg-slate-50"
           >
             →
           </button>
