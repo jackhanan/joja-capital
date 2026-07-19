@@ -76,6 +76,7 @@ export interface TeamMember {
   title: string;
   email: string;
   phone: string;
+  bio?: string;
 }
 
 export interface TeamContent {
@@ -85,10 +86,16 @@ export interface TeamContent {
   items: TeamMember[];
 }
 
+export interface AddressItem {
+  id: string;
+  label: string;
+  address: string;
+}
+
 export interface ContactContent {
   eyebrow: string;
   headline: string;
-  address: string;
+  addresses: AddressItem[];
   phone: string;
   email: string;
   instagramUrl: string;

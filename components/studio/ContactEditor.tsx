@@ -1,13 +1,33 @@
 "use client";
 
-import { ContactContent } from "@/lib/types";
+import { AddressItem, ContactContent } from "@/lib/types";
 import { useContentEditor } from "./useContentEditor";
-import { TextField } from "./FormFields";
+import { TextField, TextAreaField } from "./FormFields";
 import OptionListField from "./OptionListField";
 import SaveBar from "./SaveBar";
+import { SortableList } from "./SortableList";
+
+function emptyAddress(): AddressItem {
+  return { id: crypto.randomUUID(), label: "New Office", address: "" };
+}
 
 export default function ContactEditor({ initial }: { initial: ContactContent }) {
   const { data, setData, saving, saved, save } = useContentEditor("contact", initial);
+
+  function updateAddress(id: string, patch: Partial<AddressItem>) {
+    setData({
+      ...data,
+      addresses: data.addresses.map((a) => (a.id === id ? { ...a, ...patch } : a)),
+    });
+  }
+
+  function removeAddress(id: string) {
+    setData({ ...data, addresses: data.addresses.filter((a) => a.id !== id) });
+  }
+
+  function addAddress() {
+    setData({ ...data, addresses: [...data.addresses, emptyAddress()] });
+  }
 
   return (
     <div>
@@ -27,11 +47,46 @@ export default function ContactEditor({ initial }: { initial: ContactContent }) 
           value={data.headline}
           onChange={(v) => setData({ ...data, headline: v })}
         />
-        <TextField
-          label="Address"
-          value={data.address}
-          onChange={(v) => setData({ ...data, address: v })}
-        />
+      </div>
+
+      <p className="text-slate-400 text-xs uppercase tracking-widest mb-3 mt-10">
+        Addresses
+      </p>
+      <SortableList
+        items={data.addresses}
+        onReorder={(addresses) => setData({ ...data, addresses })}
+        renderItem={(addr) => (
+          <div className="border border-slate-800/60 p-5 pr-24">
+            <div className="flex items-center justify-between mb-4">
+              <button
+                type="button"
+                onClick={() => removeAddress(addr.id)}
+                className="ml-auto text-slate-500 hover:text-red-400 text-xs"
+              >
+                Delete
+              </button>
+            </div>
+            <div className="space-y-4">
+              <TextField
+                label="Label (e.g. New York Office)"
+                value={addr.label}
+                onChange={(v) => updateAddress(addr.id, { label: v })}
+              />
+              <TextAreaField
+                label="Address"
+                value={addr.address}
+                onChange={(v) => updateAddress(addr.id, { address: v })}
+                rows={2}
+              />
+            </div>
+          </div>
+        )}
+      />
+      <button type="button" onClick={addAddress} className="btn-secondary mt-4 !px-6 !py-2.5">
+        + Add Address
+      </button>
+
+      <div className="space-y-6 mt-10">
         <div className="grid grid-cols-2 gap-4">
           <TextField
             label="Phone"

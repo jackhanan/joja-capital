@@ -15,6 +15,7 @@ function emptyMember(): TeamMember {
     title: "Title",
     email: "name@example.com",
     phone: "(555) 010-0000",
+    bio: "",
   };
 }
 
@@ -99,6 +100,14 @@ export default function TeamEditor({ initial }: { initial: TeamContent }) {
                 label="Phone"
                 value={item.phone}
                 onChange={(v) => updateItem(item.id, { phone: v })}
+              />
+            </div>
+            <div className="mb-4">
+              <TextAreaField
+                label="Bio"
+                value={item.bio ?? ""}
+                onChange={(v) => updateItem(item.id, { bio: v })}
+                rows={4}
               />
             </div>
             <ImageUploadField

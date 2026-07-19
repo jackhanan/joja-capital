@@ -193,6 +193,7 @@ export const defaultTeam: TeamContent = {
       title: "Managing Director",
       email: "jane.doe@example.com",
       phone: "(555) 010-0001",
+      bio: "Placeholder bio: Jane leads the firm's capital markets practice, with two decades of experience arranging debt and equity across every phase of the market cycle. Replace this with a real biography from the admin dashboard.",
     },
     {
       id: "team-2",
@@ -201,6 +202,7 @@ export const defaultTeam: TeamContent = {
       title: "Director, Capital Markets",
       email: "john.smith@example.com",
       phone: "(555) 010-0002",
+      bio: "Placeholder bio: John structures and places debt and equity for owners and developers nationwide, specializing in construction and bridge financing.",
     },
     {
       id: "team-3",
@@ -209,6 +211,7 @@ export const defaultTeam: TeamContent = {
       title: "Vice President",
       email: "alex.johnson@example.com",
       phone: "(555) 010-0003",
+      bio: "Placeholder bio: Alex manages day-to-day execution on transactions from term sheet through closing, coordinating with lenders, sponsors, and legal counsel.",
     },
     {
       id: "team-4",
@@ -217,6 +220,7 @@ export const defaultTeam: TeamContent = {
       title: "Associate",
       email: "morgan.lee@example.com",
       phone: "(555) 010-0004",
+      bio: "Placeholder bio: Morgan supports underwriting and market analysis across the firm's active deal pipeline.",
     },
   ],
 };
@@ -224,7 +228,13 @@ export const defaultTeam: TeamContent = {
 export const defaultContact: ContactContent = {
   eyebrow: "Get In Touch",
   headline: "Let's Structure Your Next Deal",
-  address: "123 Placeholder Ave, Suite 400, City, ST 00000",
+  addresses: [
+    {
+      id: "addr-1",
+      label: "Main Office",
+      address: "123 Placeholder Ave, Suite 400, City, ST 00000",
+    },
+  ],
   phone: "(555) 010-0000",
   email: "info@example.com",
   instagramUrl: "https://instagram.com/",

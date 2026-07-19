@@ -1,6 +1,9 @@
 import { ContactContent } from "@/lib/types";
 
 export default function Contact({ contact }: { contact: ContactContent }) {
+  const addresses = contact.addresses ?? [];
+  const singleAddress = addresses.length === 1;
+
   return (
     <section id="contact" className="bg-slate-50">
       <div className="max-w-content mx-auto px-6 sm:px-10 py-24 sm:py-32">
@@ -9,13 +12,32 @@ export default function Contact({ contact }: { contact: ContactContent }) {
           <h2 className="section-headline">{contact.headline}</h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-10 border-t border-slate-200 pt-10">
-          <div>
-            <div className="text-accent-600 text-xs uppercase tracking-[0.2em] mb-3">
-              Address
-            </div>
-            <p className="text-slate-600">{contact.address}</p>
+        {addresses.length > 1 && (
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 border-t border-slate-200 pt-10">
+            {addresses.map((addr) => (
+              <div key={addr.id}>
+                <div className="text-accent-600 text-xs uppercase tracking-[0.2em] mb-3">
+                  {addr.label || "Address"}
+                </div>
+                <p className="text-slate-600 whitespace-pre-line">{addr.address}</p>
+              </div>
+            ))}
           </div>
+        )}
+
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-3 gap-10 ${
+            addresses.length > 1 ? "mt-10" : "mt-14 border-t border-slate-200 pt-10"
+          }`}
+        >
+          {singleAddress && (
+            <div>
+              <div className="text-accent-600 text-xs uppercase tracking-[0.2em] mb-3">
+                {addresses[0].label || "Address"}
+              </div>
+              <p className="text-slate-600 whitespace-pre-line">{addresses[0].address}</p>
+            </div>
+          )}
           <div>
             <div className="text-accent-600 text-xs uppercase tracking-[0.2em] mb-3">
               Phone
