@@ -19,10 +19,12 @@ export default function Hero({ hero }: { hero: HeroContent }) {
       </div>
 
       <div className="relative max-w-content mx-auto px-6 sm:px-10 pt-40 pb-24 sm:pt-48 sm:pb-32">
-        <p className="section-eyebrow mb-6">{hero.companyName}</p>
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-slate-900 leading-[1.05] max-w-3xl text-balance">
-          {hero.tagline}
+        <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl text-accent-600 leading-[1.05] max-w-4xl text-balance">
+          {hero.companyName}
         </h1>
+        <p className="mt-5 max-w-2xl text-graphite-700 text-lg sm:text-xl font-medium leading-snug text-balance">
+          {hero.tagline}
+        </p>
         <p className="mt-8 max-w-2xl text-slate-600 text-base sm:text-lg leading-relaxed">
           {hero.subheading}
         </p>

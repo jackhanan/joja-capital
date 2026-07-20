@@ -5,7 +5,7 @@ import { DealItem } from "@/lib/types";
 import PlaceholderImage from "./PlaceholderImage";
 import DealModal from "./DealModal";
 
-const AUTO_ADVANCE_MS = 5000;
+const AUTO_ADVANCE_MS = 3000;
 const TRANSITION_MS = 400;
 
 // Mirrors the sm/lg breakpoints on each card's inline width below (25% at
