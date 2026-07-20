@@ -32,7 +32,11 @@ export default async function HomePage() {
         <Services services={content.services} />
         <Results deals={content.deals} />
         {marketRates && (
-          <MarketRates rates={marketRates.rates} fetchedAt={marketRates.fetchedAt} />
+          <MarketRates
+            rates={marketRates.rates}
+            fetchedAt={marketRates.fetchedAt}
+            disclaimer={content.marketRates.disclaimer}
+          />
         )}
         <Team team={content.team} />
         <Contact contact={content.contact} />

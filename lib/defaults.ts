@@ -282,6 +282,8 @@ export const defaultFooter: FooterContent = {
 
 export const defaultMarketRates: MarketRatesContent = {
   enabled: true,
+  disclaimer:
+    "Source: Federal Reserve Bank of St. Louis (FRED). Updates daily at 9:00 AM ET. Not a rate quote or commitment to lend.",
 };
 
 export const defaultContent: SiteContent = {

@@ -131,8 +131,10 @@ export interface FooterContent {
 
 export interface MarketRatesContent {
   // Numbers themselves are live/fetched from FRED, not admin-editable --
-  // this is just the show/hide switch (see MarketRatesEditor.tsx).
+  // this is just the show/hide switch and footer disclaimer text
+  // (see MarketRatesEditor.tsx).
   enabled: boolean;
+  disclaimer: string;
 }
 
 export interface MarketRate {

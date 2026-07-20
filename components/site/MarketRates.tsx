@@ -22,9 +22,11 @@ function Row({ label, value }: { label: string; value: number | null }) {
 export default function MarketRates({
   rates,
   fetchedAt,
+  disclaimer,
 }: {
   rates: MarketRate[];
   fetchedAt: string | null;
+  disclaimer: string;
 }) {
   const hasData = rates.some((r) => r.value !== null);
   if (!hasData) return null;
@@ -71,9 +73,8 @@ export default function MarketRates({
                 Last Updated: {RATE_FORMATTER.format(new Date(fetchedAt))} ET
               </p>
             )}
-            <p className="mt-1.5 text-graphite-500 text-[11px] leading-relaxed max-w-lg mx-auto">
-              Source: Federal Reserve Bank of St. Louis (FRED). Updates daily at
-              9:00 AM ET. Not a rate quote or commitment to lend.
+            <p className="mt-1.5 text-graphite-500 text-[11px] leading-relaxed max-w-lg mx-auto whitespace-pre-line">
+              {disclaimer}
             </p>
           </div>
         </div>
