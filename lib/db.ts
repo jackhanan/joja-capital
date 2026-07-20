@@ -22,5 +22,8 @@ export function getResendApiKey(): string | undefined {
 
 export function getFredApiKey(): string | undefined {
   const { env } = getRequestContext();
-  return env.FRED_API_KEY;
+  // Trimmed defensively -- FRED rejects the key outright (400) if it has
+  // any stray whitespace/newline, a common copy-paste artifact when pasting
+  // secrets into the Cloudflare dashboard.
+  return env.FRED_API_KEY?.trim() || undefined;
 }
