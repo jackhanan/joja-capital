@@ -33,34 +33,45 @@ export default function MarketRates({
   const treasuries = rates.slice(3);
 
   return (
-    <section id="market-rates" className="bg-navy-950">
+    <section id="market-rates" className="border-b border-slate-200 bg-white">
       <div className="max-w-content mx-auto px-6 sm:px-10 py-24 sm:py-32">
-        <div className="max-w-xl mx-auto border border-accent-800 bg-accent-900 px-8 py-10 sm:px-12 sm:py-14">
-          <h2 className="font-serif italic text-2xl sm:text-3xl text-white text-center">
-            Live Market Rates
-          </h2>
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="section-eyebrow mb-4">Market Data</p>
+          <h2 className="section-headline">Live Market Rates</h2>
+          <p className="mt-6 text-slate-500 leading-relaxed">
+            Benchmark lending rates and U.S. Treasury yields, updated daily from the
+            Federal Reserve.
+          </p>
+        </div>
 
-          <div className="mt-8">
-            {overnight.map((r) => (
-              <Row key={r.seriesId} label={r.label} value={r.value} />
-            ))}
-
-            <div className="pt-6 pb-1 text-graphite-400 text-xs uppercase tracking-[0.2em]">
-              U.S. Treasuries
+        <div className="mt-16 border border-accent-800 bg-gradient-to-br from-accent-900 to-accent-800 px-8 py-12 sm:px-16 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16">
+            <div>
+              <div className="text-graphite-300 text-xs uppercase tracking-[0.2em] mb-2">
+                Benchmark Rates
+              </div>
+              {overnight.map((r) => (
+                <Row key={r.seriesId} label={r.label} value={r.value} />
+              ))}
             </div>
 
-            {treasuries.map((r) => (
-              <Row key={r.seriesId} label={r.label} value={r.value} />
-            ))}
+            <div className="mt-8 sm:mt-0">
+              <div className="text-graphite-300 text-xs uppercase tracking-[0.2em] mb-2">
+                U.S. Treasuries
+              </div>
+              {treasuries.map((r) => (
+                <Row key={r.seriesId} label={r.label} value={r.value} />
+              ))}
+            </div>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-10 pt-8 border-t border-white/10 text-center">
             {fetchedAt && (
               <p className="text-graphite-400 text-xs">
                 Last Updated: {RATE_FORMATTER.format(new Date(fetchedAt))} ET
               </p>
             )}
-            <p className="mt-2 text-graphite-500 text-[11px] leading-relaxed">
+            <p className="mt-2 text-graphite-500 text-[11px] leading-relaxed max-w-lg mx-auto">
               Rates sourced from the Federal Reserve Bank of St. Louis (FRED). For
               informational purposes only — not a rate quote or commitment to lend.
             </p>
