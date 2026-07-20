@@ -19,3 +19,8 @@ export function getResendApiKey(): string | undefined {
   const { env } = getRequestContext();
   return env.RESEND_API_KEY;
 }
+
+export function getFredApiKey(): string | undefined {
+  const { env } = getRequestContext();
+  return env.FRED_API_KEY;
+}

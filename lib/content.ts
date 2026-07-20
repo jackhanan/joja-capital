@@ -21,6 +21,7 @@ export async function getAllContent(): Promise<SiteContent> {
     team: defaultContent.team,
     contact: defaultContent.contact,
     footer: defaultContent.footer,
+    marketRates: defaultContent.marketRates,
   };
 
   for (const row of results ?? []) {

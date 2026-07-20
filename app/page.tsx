@@ -1,10 +1,12 @@
 import { getAllContent } from "@/lib/content";
+import { getMarketRates } from "@/lib/marketRates";
 import Nav from "@/components/site/Nav";
 import Hero from "@/components/site/Hero";
 import About from "@/components/site/About";
 import Ticker from "@/components/site/Ticker";
 import Services from "@/components/site/Services";
 import Results from "@/components/site/Results";
+import MarketRates from "@/components/site/MarketRates";
 import Team from "@/components/site/Team";
 import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
@@ -14,6 +16,7 @@ export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const content = await getAllContent();
+  const marketRates = content.marketRates.enabled ? await getMarketRates() : null;
 
   return (
     <>
@@ -28,6 +31,9 @@ export default async function HomePage() {
         <Ticker items={content.services.tickerItems} />
         <Services services={content.services} />
         <Results deals={content.deals} />
+        {marketRates && (
+          <MarketRates rates={marketRates.rates} fetchedAt={marketRates.fetchedAt} />
+        )}
         <Team team={content.team} />
         <Contact contact={content.contact} />
       </main>

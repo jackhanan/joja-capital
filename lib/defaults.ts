@@ -4,6 +4,7 @@ import {
   DealsContent,
   FooterContent,
   HeroContent,
+  MarketRatesContent,
   ServicesContent,
   SiteContent,
   TeamContent,
@@ -279,6 +280,10 @@ export const defaultFooter: FooterContent = {
   copyrightText: `© ${new Date().getFullYear()} JOJA Capital. All rights reserved.`,
 };
 
+export const defaultMarketRates: MarketRatesContent = {
+  enabled: true,
+};
+
 export const defaultContent: SiteContent = {
   hero: defaultHero,
   about: defaultAbout,
@@ -287,4 +292,5 @@ export const defaultContent: SiteContent = {
   team: defaultTeam,
   contact: defaultContact,
   footer: defaultFooter,
+  marketRates: defaultMarketRates,
 };

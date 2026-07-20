@@ -8,6 +8,7 @@ const SECTIONS = [
   { href: "/studio/dashboard/about", label: "About" },
   { href: "/studio/dashboard/services", label: "Services" },
   { href: "/studio/dashboard/deals", label: "Results / Deals" },
+  { href: "/studio/dashboard/market-rates", label: "Market Rates" },
   { href: "/studio/dashboard/team", label: "Team" },
   { href: "/studio/dashboard/contact", label: "Contact / Social" },
   { href: "/studio/dashboard/footer", label: "Footer" },

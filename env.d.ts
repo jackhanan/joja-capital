@@ -4,6 +4,7 @@ declare global {
     IMAGES: R2Bucket;
     ADMIN_PASSWORD: string;
     RESEND_API_KEY: string;
+    FRED_API_KEY: string;
   }
 }
 

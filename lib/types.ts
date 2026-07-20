@@ -129,6 +129,18 @@ export interface FooterContent {
   copyrightText: string;
 }
 
+export interface MarketRatesContent {
+  // Numbers themselves are live/fetched from FRED, not admin-editable --
+  // this is just the show/hide switch (see MarketRatesEditor.tsx).
+  enabled: boolean;
+}
+
+export interface MarketRate {
+  seriesId: string;
+  label: string;
+  value: number | null;
+}
+
 export interface SiteContent {
   hero: HeroContent;
   about: AboutContent;
@@ -137,6 +149,7 @@ export interface SiteContent {
   team: TeamContent;
   contact: ContactContent;
   footer: FooterContent;
+  marketRates: MarketRatesContent;
 }
 
 export type ContentKey = keyof SiteContent;
