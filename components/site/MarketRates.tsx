@@ -35,7 +35,7 @@ export default function MarketRates({
   return (
     <section id="market-rates" className="border-b border-slate-200 bg-white">
       <div className="max-w-content mx-auto px-6 sm:px-10 py-24 sm:py-32">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-2xl">
           <p className="section-eyebrow mb-4">Market Data</p>
           <h2 className="section-headline">Live Market Rates</h2>
           <p className="mt-6 text-slate-500 leading-relaxed">
@@ -72,8 +72,8 @@ export default function MarketRates({
               </p>
             )}
             <p className="mt-1.5 text-graphite-500 text-[11px] leading-relaxed max-w-lg mx-auto">
-              Rates sourced from the Federal Reserve Bank of St. Louis (FRED). For
-              informational purposes only — not a rate quote or commitment to lend.
+              Source: Federal Reserve Bank of St. Louis (FRED). Updates daily at
+              9:00 AM ET. Not a rate quote or commitment to lend.
             </p>
           </div>
         </div>

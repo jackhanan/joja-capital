@@ -275,7 +275,7 @@ export const defaultFooter: FooterContent = {
     { id: "nav-2", label: "Services", href: "#services" },
     { id: "nav-3", label: "Results", href: "#results" },
     { id: "nav-4", label: "Team", href: "#team" },
-    { id: "nav-5", label: "Contact", href: "#contact" },
+    { id: "nav-5", label: "Live Market", href: "#market-rates" },
   ],
   copyrightText: `© ${new Date().getFullYear()} JOJA Capital. All rights reserved.`,
 };
