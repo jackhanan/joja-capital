@@ -1,0 +1,19 @@
+name = "joja-market-rates-cron"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "joja-capital-db"
+database_id = "f7fb1575-0630-4837-ad71-469c943bf39d"
+
+# Two expressions to cover both US Eastern DST states year-round:
+#   0 13 * * 1-5  ->  13:00 UTC weekdays = 9:00am EDT (roughly mid-Mar to early Nov)
+#   0 14 * * 1-5  ->  14:00 UTC weekdays = 9:00am EST (roughly early Nov to mid-Mar)
+# The handler checks which offset is actually active "today" in
+# America/New_York and no-ops the other one, so this fires exactly once
+# per weekday at 9:00am ET regardless of season. Weekends are skipped
+# entirely since FRED doesn't publish new values then.
+[triggers]
+crons = ["0 13 * * 1-5", "0 14 * * 1-5"]

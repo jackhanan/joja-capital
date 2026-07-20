@@ -11,7 +11,10 @@
     "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
     "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
     "db:migrate:local": "wrangler d1 migrations apply joja-capital-db --local",
-    "db:migrate:remote": "wrangler d1 migrations apply joja-capital-db --remote"
+    "db:migrate:remote": "wrangler d1 migrations apply joja-capital-db --remote",
+    "cron:deploy": "wrangler deploy --config workers/market-rates-cron/wrangler.toml",
+    "cron:secret": "wrangler secret put FRED_API_KEY --config workers/market-rates-cron/wrangler.toml",
+    "cron:tail": "wrangler tail --config workers/market-rates-cron/wrangler.toml"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "1.13.6",

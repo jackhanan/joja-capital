@@ -1,3 +1,4 @@
 ADMIN_PASSWORD=change-me
 RESEND_API_KEY=re_your_resend_api_key
-FRED_API_KEY=your_fred_api_key
+# FRED_API_KEY is NOT used by the main app -- it belongs to the standalone
+# workers/market-rates-cron Worker. See workers/market-rates-cron/.dev.vars.example.
