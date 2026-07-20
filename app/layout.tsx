@@ -20,13 +20,35 @@ const bodyFont = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://jojacapital.com";
+
 export async function generateMetadata(): Promise<Metadata> {
   const { hero } = await getAllContent();
+  const title = `${hero.companyName} | Commercial Real Estate Financing`;
+  // Pulled from D1 (hero.subheading) rather than hardcoded, so it stays in
+  // sync if that content is edited from /studio.
+  const description = hero.subheading;
+
   return {
-    title: `${hero.companyName} | ${hero.tagline}`,
-    description: hero.subheading,
+    metadataBase: new URL(SITE_URL),
+    title,
+    description,
     icons: {
-      icon: "/favicon.jpeg",
+      icon: "/favicon.jpg",
+    },
+    openGraph: {
+      title,
+      description,
+      url: "/",
+      siteName: hero.companyName,
+      type: "website",
+      images: [{ url: "/joja-logo.png", width: 634, height: 282, alt: hero.companyName }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/joja-logo.png"],
     },
   };
 }
