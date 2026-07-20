@@ -44,7 +44,7 @@ export default function MarketRates({
           </p>
         </div>
 
-        <div className="mt-16 border border-accent-800 bg-gradient-to-br from-accent-900 to-accent-800 px-8 py-12 sm:px-16 sm:py-16">
+        <div className="mt-16 border border-accent-800 bg-gradient-to-br from-accent-900 to-accent-800 px-8 pt-12 pb-8 sm:px-16 sm:pt-16 sm:pb-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16">
             <div>
               <div className="text-graphite-300 text-xs uppercase tracking-[0.2em] mb-2">
@@ -65,13 +65,13 @@ export default function MarketRates({
             </div>
           </div>
 
-          <div className="mt-10 pt-8 border-t border-white/10 text-center">
+          <div className="mt-6 pt-5 border-t border-white/10 text-center">
             {fetchedAt && (
               <p className="text-graphite-400 text-xs">
                 Last Updated: {RATE_FORMATTER.format(new Date(fetchedAt))} ET
               </p>
             )}
-            <p className="mt-2 text-graphite-500 text-[11px] leading-relaxed max-w-lg mx-auto">
+            <p className="mt-1.5 text-graphite-500 text-[11px] leading-relaxed max-w-lg mx-auto">
               Rates sourced from the Federal Reserve Bank of St. Louis (FRED). For
               informational purposes only — not a rate quote or commitment to lend.
             </p>
