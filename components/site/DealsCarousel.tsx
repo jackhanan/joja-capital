@@ -144,12 +144,12 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
                     {deal.dealType}
                   </div>
                   {deal.assetType && (
-                    <div className="mt-1 text-graphite-500 text-sm">{deal.assetType}</div>
+                    <div className="mt-1 text-graphite-600 text-xs uppercase tracking-[0.15em]">
+                      {deal.assetType}
+                    </div>
                   )}
                   {deal.transactionType && (
-                    <div className="mt-1 text-graphite-600 text-xs uppercase tracking-[0.15em]">
-                      {deal.transactionType}
-                    </div>
+                    <div className="mt-1 text-graphite-500 text-sm">{deal.transactionType}</div>
                   )}
                   <div className="mt-1 text-graphite-500 text-sm">{deal.location}</div>
                 </div>
