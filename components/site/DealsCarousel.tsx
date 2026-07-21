@@ -5,7 +5,7 @@ import { DealItem } from "@/lib/types";
 import PlaceholderImage from "./PlaceholderImage";
 import DealModal from "./DealModal";
 
-const AUTO_ADVANCE_MS = 3000;
+const AUTO_ADVANCE_MS = 5000;
 const TRANSITION_MS = 400;
 
 // Mirrors the sm/lg breakpoints on each card's inline width below (25% at
@@ -143,6 +143,14 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
                   <div className="mt-2 text-accent-600 text-xs uppercase tracking-[0.2em]">
                     {deal.dealType}
                   </div>
+                  {deal.assetType && (
+                    <div className="mt-1 text-graphite-500 text-sm">{deal.assetType}</div>
+                  )}
+                  {deal.transactionType && (
+                    <div className="mt-1 text-graphite-600 text-xs uppercase tracking-[0.15em]">
+                      {deal.transactionType}
+                    </div>
+                  )}
                   <div className="mt-1 text-graphite-500 text-sm">{deal.location}</div>
                 </div>
               </button>

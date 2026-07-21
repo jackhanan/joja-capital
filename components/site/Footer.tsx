@@ -45,7 +45,12 @@ export default function Footer({
         </div>
 
         <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-graphite-400 text-xs">{footer.copyrightText}</p>
+          <p className="text-graphite-400 text-xs">
+            {footer.copyrightText}
+            {/* Hardcoded intentionally -- not stored in D1 / editable from
+                /studio under any circumstances. */}
+            <span className="text-graphite-300"> · Website by Jack Hanan</span>
+          </p>
           <Link
             href="/studio"
             className="text-graphite-300 hover:text-graphite-600 text-xs transition-colors"

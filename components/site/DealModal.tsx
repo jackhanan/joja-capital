@@ -79,6 +79,7 @@ export default function DealModal({
           </div>
 
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-200 pt-8">
+            <Field label="Deal Type" value={deal.transactionType} />
             <Field label="Location" value={deal.location} />
             <Field label="Units" value={deal.units} />
             <Field label="Asset Type" value={deal.assetType} />

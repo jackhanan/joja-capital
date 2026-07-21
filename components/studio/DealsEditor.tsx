@@ -1,11 +1,13 @@
 "use client";
 
-import { DealItem, DealsContent } from "@/lib/types";
+import { DealItem, DealsContent, DealTransactionType } from "@/lib/types";
 import { useContentEditor } from "./useContentEditor";
-import { TextField, TextAreaField } from "./FormFields";
+import { TextField, TextAreaField, SelectField } from "./FormFields";
 import ImageUploadField from "./ImageUploadField";
 import SaveBar from "./SaveBar";
 import { SortableList } from "./SortableList";
+
+const TRANSACTION_TYPES: DealTransactionType[] = ["Refinance", "Acquisition"];
 
 function emptyDeal(): DealItem {
   return {
@@ -18,6 +20,7 @@ function emptyDeal(): DealItem {
     units: "",
     rate: "",
     transactionDetails: "",
+    transactionType: undefined,
   };
 }
 
@@ -117,7 +120,7 @@ export default function DealsEditor({ initial }: { initial: DealsContent }) {
                 onChange={(v) => updateItem(item.id, { amount: v })}
               />
               <TextField
-                label="Deal Type"
+                label="Financing Type"
                 value={item.dealType}
                 onChange={(v) => updateItem(item.id, { dealType: v })}
               />
@@ -128,6 +131,16 @@ export default function DealsEditor({ initial }: { initial: DealsContent }) {
               />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+              <SelectField
+                label="Deal Type"
+                value={item.transactionType ?? ""}
+                options={TRANSACTION_TYPES}
+                onChange={(v) =>
+                  updateItem(item.id, {
+                    transactionType: (v || undefined) as DealTransactionType | undefined,
+                  })
+                }
+              />
               <TextField
                 label="Asset Type"
                 value={item.assetType ?? ""}
@@ -138,6 +151,8 @@ export default function DealsEditor({ initial }: { initial: DealsContent }) {
                 value={item.units ?? ""}
                 onChange={(v) => updateItem(item.id, { units: v })}
               />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
               <TextField
                 label="Rate"
                 value={item.rate ?? ""}

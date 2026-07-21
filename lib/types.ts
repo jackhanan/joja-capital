@@ -46,6 +46,8 @@ export interface ServicesContent {
   tickerItems: string[];
 }
 
+export type DealTransactionType = "Refinance" | "Acquisition";
+
 export interface DealItem {
   id: string;
   image: string;
@@ -56,6 +58,9 @@ export interface DealItem {
   units?: string;
   rate?: string;
   transactionDetails?: string;
+  // "Deal Type" in the admin UI/card -- distinct from `dealType` above
+  // (which is the financing type, e.g. "Bridge Loan").
+  transactionType?: DealTransactionType;
 }
 
 export interface DealsContent {

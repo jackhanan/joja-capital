@@ -53,6 +53,40 @@ export function TextAreaField({
   );
 }
 
+export function SelectField({
+  label,
+  value,
+  options,
+  onChange,
+  placeholder = "Select…",
+}: {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (v: string) => void;
+  placeholder?: string;
+}) {
+  return (
+    <div>
+      <label className="block text-slate-400 text-xs uppercase tracking-widest mb-2">
+        {label}
+      </label>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full bg-navy-900 border border-slate-700 px-4 py-2.5 text-slate-100 focus:outline-none focus:border-accent-400 transition-colors"
+      >
+        <option value="">{placeholder}</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export function NumberField({
   label,
   value,
