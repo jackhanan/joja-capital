@@ -51,21 +51,21 @@ export default function TeamMemberModal({
           ✕
         </button>
 
-        <div className="grid grid-cols-1 sm:grid-cols-[220px_1fr] sm:items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-[220px_1fr]">
           <PlaceholderImage
             src={member.photo}
             alt={member.name}
             label="Headshot Placeholder"
-            className="w-full aspect-[3/4] object-cover"
+            className="w-full aspect-[3/4] object-cover sm:self-start"
           />
 
-          <div className="p-6 sm:p-10">
-            <h2 className="font-serif text-2xl sm:text-3xl text-slate-900">{member.name}</h2>
-            <p className="mt-2 text-accent-600 text-xs uppercase tracking-[0.2em]">
+          <div className="p-6 sm:p-10 flex flex-col justify-center">
+            <h2 className="font-serif text-3xl sm:text-4xl text-slate-900">{member.name}</h2>
+            <p className="mt-3 text-accent-600 text-sm uppercase tracking-[0.2em]">
               {member.title}
             </p>
 
-            <div className="mt-6 space-y-1 text-sm">
+            <div className="mt-8 space-y-2 text-base">
               <a
                 href={`mailto:${member.email}`}
                 className="block text-graphite-500 hover:text-slate-900 transition-colors"
@@ -79,16 +79,16 @@ export default function TeamMemberModal({
                 {member.phone}
               </a>
             </div>
-
-            <div className="mt-8 border-t border-slate-200 pt-8">
-              <div className="text-graphite-500 text-xs uppercase tracking-[0.2em] mb-3">
-                Bio
-              </div>
-              <p className="text-slate-600 leading-relaxed whitespace-pre-line">
-                {member.bio || "No biography has been added for this team member yet."}
-              </p>
-            </div>
           </div>
+        </div>
+
+        <div className="p-6 sm:p-10 border-t border-slate-200">
+          <div className="text-graphite-500 text-xs uppercase tracking-[0.2em] mb-3">
+            Bio
+          </div>
+          <p className="text-slate-600 leading-relaxed whitespace-pre-line">
+            {member.bio || "No biography has been added for this team member yet."}
+          </p>
         </div>
       </div>
     </div>
