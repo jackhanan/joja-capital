@@ -51,12 +51,12 @@ export default function TeamMemberModal({
           ✕
         </button>
 
-        <div className="grid grid-cols-1 sm:grid-cols-[220px_1fr]">
+        <div className="grid grid-cols-1 sm:grid-cols-[220px_1fr] sm:items-start">
           <PlaceholderImage
             src={member.photo}
             alt={member.name}
             label="Headshot Placeholder"
-            className="w-full aspect-[3/4] sm:h-full object-cover"
+            className="w-full aspect-[3/4] object-cover"
           />
 
           <div className="p-6 sm:p-10">
