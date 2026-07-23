@@ -28,7 +28,7 @@ export default function Nav({
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="max-w-content mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
-        <a href="/" className="flex items-center">
+        <a href="/" className="flex items-center transition-opacity duration-200 hoverable:opacity-75">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/joja-logo.png"
@@ -55,7 +55,7 @@ export default function Nav({
         <button
           type="button"
           aria-label="Toggle menu"
-          className="md:hidden text-slate-900"
+          className="md:hidden text-slate-900 transition-all duration-200 hoverable:text-accent-600 hoverable:scale-110 active:scale-95"
           onClick={() => setOpen((v) => !v)}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none">

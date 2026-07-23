@@ -52,15 +52,21 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 bg-accent-600 text-white font-semibold tracking-wide uppercase text-sm hover:bg-accent-700 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-accent-600 text-white font-semibold tracking-wide uppercase text-sm hover:bg-accent-700 transition-all duration-200 hoverable:-translate-y-0.5 hoverable:shadow-lg active:translate-y-0 active:shadow-none;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-3.5 bg-white/90 border border-slate-300 text-slate-900 font-semibold tracking-wide uppercase text-sm hover:border-accent-600 hover:text-accent-600 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-white/90 border border-slate-300 text-slate-900 font-semibold tracking-wide uppercase text-sm hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:-translate-y-0.5 hoverable:shadow-md active:translate-y-0 active:shadow-none;
   }
 
   /* Admin studio (dark background) */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 border border-slate-400/60 text-slate-100 font-semibold tracking-wide uppercase text-sm hover:border-accent-400 hover:text-accent-400 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-slate-400/60 text-slate-100 font-semibold tracking-wide uppercase text-sm hover:border-accent-400 hover:text-accent-400 transition-all duration-200 hoverable:-translate-y-0.5 hoverable:shadow-lg active:translate-y-0 active:shadow-none;
+  }
+
+  /* Shared lift-and-shadow treatment for clickable cards (deal cards, team
+     member cards) -- signals "interactive" without being distracting. */
+  .card-interactive {
+    @apply transition-all duration-200 hoverable:-translate-y-1 hoverable:shadow-xl hoverable:border-accent-600;
   }
 }

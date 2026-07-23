@@ -25,7 +25,7 @@ export default function Team({ team }: { team: TeamContent }) {
               key={member.id}
               type="button"
               onClick={() => setActiveMember(member)}
-              className="group text-left focus:outline-none focus:ring-2 focus:ring-accent-600"
+              className="group text-left focus:outline-none focus:ring-2 focus:ring-accent-600 transition-all duration-200 hoverable:-translate-y-1 hoverable:shadow-xl"
             >
               <PlaceholderImage
                 src={member.photo}

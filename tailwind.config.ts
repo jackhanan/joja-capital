@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -65,6 +66,14 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Gates transform/shadow hover effects to devices that support real
+    // hovering (mouse/trackpad) so they can never get "stuck" after a tap
+    // on touch devices. Plain color-transition hovers are left on the
+    // normal `hover:` variant since a lingering color tint is harmless.
+    plugin(({ addVariant }) => {
+      addVariant("hoverable", "@media (hover: hover) and (pointer: fine) { &:hover }");
+    }),
+  ],
 };
 export default config;
