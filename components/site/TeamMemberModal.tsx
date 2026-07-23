@@ -46,7 +46,7 @@ export default function TeamMemberModal({
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center bg-white/90 border border-slate-200 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:scale-110 active:scale-95"
+          className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center bg-white/90 border border-slate-200 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:hover:scale-110 active:scale-95"
         >
           ✕
         </button>

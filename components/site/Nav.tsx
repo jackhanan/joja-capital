@@ -28,7 +28,7 @@ export default function Nav({
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="max-w-content mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
-        <a href="/" className="flex items-center transition-opacity duration-200 hoverable:opacity-75">
+        <a href="/" className="flex items-center transition-opacity duration-200 hoverable:hover:opacity-75">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/joja-logo.png"
@@ -42,7 +42,7 @@ export default function Nav({
             <a
               key={link.id}
               href={resolveHref(link.href)}
-              className="text-slate-600 hover:text-accent-600 text-sm uppercase tracking-widest transition-colors"
+              className="relative text-slate-600 hover:text-accent-600 text-sm uppercase tracking-widest transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-600 after:transition-transform after:duration-200 hoverable:hover:after:scale-x-100"
             >
               {link.label}
             </a>
@@ -55,7 +55,7 @@ export default function Nav({
         <button
           type="button"
           aria-label="Toggle menu"
-          className="md:hidden text-slate-900 transition-all duration-200 hoverable:text-accent-600 hoverable:scale-110 active:scale-95"
+          className="md:hidden text-slate-900 transition-all duration-200 hoverable:hover:text-accent-600 hoverable:hover:scale-110 active:scale-95"
           onClick={() => setOpen((v) => !v)}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -75,7 +75,7 @@ export default function Nav({
               key={link.id}
               href={resolveHref(link.href)}
               onClick={() => setOpen(false)}
-              className="text-slate-600 hover:text-accent-600 text-sm uppercase tracking-widest transition-colors"
+              className="relative text-slate-600 hover:text-accent-600 text-sm uppercase tracking-widest transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-600 after:transition-transform after:duration-200 hoverable:hover:after:scale-x-100"
             >
               {link.label}
             </a>

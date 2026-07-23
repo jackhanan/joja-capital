@@ -71,8 +71,16 @@ const config: Config = {
     // hovering (mouse/trackpad) so they can never get "stuck" after a tap
     // on touch devices. Plain color-transition hovers are left on the
     // normal `hover:` variant since a lingering color tint is harmless.
+    //
+    // Deliberately just the media query, with no `:hover` baked in --
+    // always pair with hover: explicitly (`hoverable:hover:...`), which is
+    // what makes it composable with other variants like `after:`. Baking
+    // `&:hover` into this variant works fine standalone but silently fails
+    // to generate any CSS at all when stacked with a pseudo-element
+    // variant, since Tailwind can't correctly nest `&::after` inside the
+    // custom variant's own `&:hover` replacement.
     plugin(({ addVariant }) => {
-      addVariant("hoverable", "@media (hover: hover) and (pointer: fine) { &:hover }");
+      addVariant("hoverable", "@media (hover: hover) and (pointer: fine)");
     }),
   ],
 };

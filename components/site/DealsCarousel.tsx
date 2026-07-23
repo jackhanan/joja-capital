@@ -98,7 +98,7 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
             type="button"
             aria-label="Previous deal"
             onClick={() => step(-1)}
-            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:scale-110 hoverable:shadow-md active:scale-95 bg-slate-50"
+            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:hover:scale-110 hoverable:hover:shadow-md active:scale-95 bg-slate-50"
           >
             ←
           </button>
@@ -106,7 +106,7 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
             type="button"
             aria-label="Next deal"
             onClick={() => step(1)}
-            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:scale-110 hoverable:shadow-md active:scale-95 bg-slate-50"
+            className="w-10 h-10 flex items-center justify-center border border-slate-300 text-slate-900 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 hoverable:hover:scale-110 hoverable:hover:shadow-md active:scale-95 bg-slate-50"
           >
             →
           </button>
@@ -167,7 +167,7 @@ export default function DealsCarousel({ deals }: { deals: DealItem[] }) {
               type="button"
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => goTo(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-200 hoverable:scale-125 ${
+              className={`w-2 h-2 rounded-full transition-all duration-200 hoverable:hover:scale-125 ${
                 i === startIndex ? "bg-accent-600" : "bg-slate-300 hover:bg-slate-400"
               }`}
             />
