@@ -27,9 +27,13 @@ export async function getMarketRates(): Promise<MarketRatesResult> {
 
   const rows = results ?? [];
   const cached = new Map(rows.map((r) => [r.series_id, r]));
+  // Use the OLDEST fetched_at across series, not the newest -- otherwise a
+  // partial refresh (some series updated, others stuck on a stale value)
+  // shows a fully-fresh timestamp and masks the staleness of the series
+  // that didn't update.
   let fetchedAt: string | null = null;
   for (const row of rows) {
-    if (!fetchedAt || row.fetched_at > fetchedAt) fetchedAt = row.fetched_at;
+    if (!fetchedAt || row.fetched_at < fetchedAt) fetchedAt = row.fetched_at;
   }
 
   return {
